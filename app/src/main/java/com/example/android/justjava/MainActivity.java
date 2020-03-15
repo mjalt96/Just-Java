@@ -1,5 +1,7 @@
 package com.example.android.justjava;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -15,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     //Global variables
+    int order = 0;
     int quantity=2;
     int price = 0;
     boolean hasWhippedCream = false;
@@ -29,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
     public void increment(View view) {
         if (quantity < 50) {
             displayQuantity(++quantity);
+            //Calculate and display price
+            price = calculatePrice();
+            displayPrice(price);
         }
         else {
             //Create and display Toast Message
@@ -41,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
     public void decrement(View view) {
         if (quantity > 1) {
             displayQuantity(--quantity);
+            //Calculate and display price
+            price = calculatePrice();
+            displayPrice(price);
         }
         else {
             //Create and display Toast Message
@@ -54,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
+        order+=1;
         //Check for checked toppings
         CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_check_box);
         hasWhippedCream = whippedCreamCheckBox.isChecked();
@@ -63,10 +73,19 @@ public class MainActivity extends AppCompatActivity {
         EditText nameView = (EditText) findViewById(R.id.name_field);
         String name = nameView.getText().toString();
 
-        //Calculate price
+        //Calculate and display price
         price = calculatePrice();
+        displayPrice(price);
 
-        displayMessage(createOrderSummary(name));
+        //Create summary and e-mail using an intent
+        String subject = "Just-Java Order n" + order + " for " + name;
+        Intent composeEmail = new Intent(Intent.ACTION_SENDTO);
+        composeEmail.setData(Uri.parse("mailto:"));
+        composeEmail.putExtra(Intent.EXTRA_SUBJECT, subject);
+        composeEmail.putExtra(Intent.EXTRA_TEXT, createOrderSummary(name));
+        if (composeEmail.resolveActivity(getPackageManager()) != null) {
+            startActivity(composeEmail);
+        }
     }
 
     /**
@@ -109,8 +128,8 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method displays the given text on the screen.
      */
-    private void displayMessage(String message) {
-        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
-        orderSummaryTextView.setText(message);
+    private void displayPrice(int price) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(price + " $");
     }
 }
