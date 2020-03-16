@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Coffee Order"
+            android:text="@string/coffee_order"
             android:textAllCaps="false"
             android:textSize="24sp" />
 
@@ -23,7 +23,7 @@
             android:id="@+id/name_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Write your name here."
+            android:hint="@string/name_field_hint"
             android:inputType="textPersonName"
             android:maxLength="50"
             android:singleLine="true" />
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="16dp"
-            android:text="Toppings"
+            android:text="@string/toppings"
             android:textAllCaps="true"
             android:textSize="16sp" />
 
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="16dp"
-            android:text="Quantity"
+            android:text="@string/quantity"
             android:textAllCaps="true"
             android:textSize="16sp" />
 
@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="16dp"
-            android:text="Order Summary"
+            android:text="@string/order_summary"
             android:textAllCaps="true" />
 
         <TextView
@@ -119,7 +119,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:onClick="submitOrder"
-            android:text="Order"
+            android:text="@string/order"
             android:textAllCaps="true" />
     </LinearLayout>
 

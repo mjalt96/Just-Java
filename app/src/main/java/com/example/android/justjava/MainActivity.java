@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         displayPrice(price);
 
         //Create summary and e-mail using an intent
-        String subject = "Just-Java Order n" + order + " for " + name;
+        String subject = getString(R.string.order_just_java_order_n) + " " + order + " " + getString(R.string.word_for) + " " + name;
         Intent composeEmail = new Intent(Intent.ACTION_SENDTO);
         composeEmail.setData(Uri.parse("mailto:"));
         composeEmail.putExtra(Intent.EXTRA_SUBJECT, subject);
@@ -93,9 +93,12 @@ public class MainActivity extends AppCompatActivity {
      * @return
      */
     private String createOrderSummary(String name) {
-        String message = "Name: " + name + ("\nAdd whipped cream? " + hasWhippedCream)
-                + ("\nAdd chocolate? " + hasChocolate) + ("\nQuantity: " + quantity)
-                + ("\nTotal: $" + price) + "\nThank you!";
+        String message = getString(R.string.order_name, name)
+                + "\n" + getString(R.string.order_add_whipped_cream) + " " + hasWhippedCream
+                + "\n" + getString(R.string.order_add_chocolate) + " " + hasChocolate
+                + "\n" + getString(R.string.order_quantity) + " " + quantity
+                + "\n" + getString(R.string.order_total)+ " " + price
+                + "\n" + getString(R.string.order_thank_you);
         return message;
     }
 

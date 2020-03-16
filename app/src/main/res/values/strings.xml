@@ -1,3 +1,24 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Just Java</string>
+
+    <!--Strings from the main screen-->
+    <string name="coffee_order">Coffee Order</string>
+    <string name="name_field_hint">Write your name here.</string>
+    <string name="toppings" translatable="false">Toppings</string>
+    <string name="quantity">Quantity</string>
+    <string name="order_summary">Order Summary</string>
+    <string name="order" translatable="false">Order</string>
+
+    <!--Strings from the Order Summary-->
+    <string name="order_thank_you">Thank you!</string>
+    <string name="order_total" translatable="false">Total: $</string>
+    <string name="order_quantity">Quantity:</string>
+    <string name="order_add_chocolate">Add chocolate?</string>
+    <string name="order_add_whipped_cream">Add whipped cream?</string>
+    <!--xliff is defining that the name variable should not be translated-->
+    <string name="order_name">Name: <xliff:g id="name" example="Amy">%s</xliff:g></string>
+    <string name="order_just_java_order_n">Just-Java Order n</string>
+
+    <!--Single words-->
+    <string name="word_for"> for </string>
 </resources>
