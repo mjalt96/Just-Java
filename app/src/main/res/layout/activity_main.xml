@@ -29,13 +29,10 @@
             android:singleLine="true" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="16dp"
             android:text="@string/toppings"
-            android:textAllCaps="true"
-            android:textSize="16sp" />
+            style="@style/HeaderTextStyle" />
 
         <CheckBox
             android:id="@+id/whipped_cream_check_box"
@@ -54,13 +51,10 @@
             android:textSize="16sp" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="16dp"
             android:text="@string/quantity"
-            android:textAllCaps="true"
-            android:textSize="16sp" />
+            style="@style/HeaderTextStyle" />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
@@ -95,12 +89,10 @@
         </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="16dp"
             android:text="@string/order_summary"
-            android:textAllCaps="true" />
+            style="@style/HeaderTextStyle" />
 
         <TextView
             android:id="@+id/price_text_view"
